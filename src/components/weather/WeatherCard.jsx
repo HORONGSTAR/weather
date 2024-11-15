@@ -1,10 +1,11 @@
-import React, { useEffect, useCallback, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchWeathers } from '../../features/weathersSlice'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
+import { weatherDescKo } from '../../features/InternaLdata'
 
 function WeatherCard({ locals }) {
    const dispatch = useDispatch()
@@ -21,10 +22,21 @@ function WeatherCard({ locals }) {
       <>
          {weathers && (
             <Card sx={{ maxWidth: 200 }}>
-               <CardMedia component="img" height="200" image={`https://openweathermap.org/img/wn/${weathers.weather[0] ? weathers.weather[0].icon : Date.getHours() > 5 && Date.getHours() < 18 ? '01d' : '01n'}@4x.png`} alt="green iguana" />
+               <CardMedia
+                  component="img"
+                  height="200"
+                  image={`https://openweathermap.org/img/wn/${
+                     weathers.weather[0]
+                        ? weathers.weather[0].icon
+                        : Date.getHours() > 5 && Date.getHours() < 18
+                        ? '01d'
+                        : '01n'
+                  }@4x.png`}
+                  alt="green iguana"
+               />
                <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                     {weathers.weather[0].description}
+                     {weatherDescKo[weathers.weather[0].id]}
                   </Typography>
                   <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                      현재 온도 {weathers.main.temp.toFixed(1)}°C
