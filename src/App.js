@@ -4,10 +4,8 @@ import WeatherForecast from './page/WeatherForecast'
 import AirPollution from './page/AirPollution'
 import Planetarium from './page/Planetarium'
 import NotFound from './page/NotFound'
-import { getWeather } from './api/weatherAPI'
 
 function App() {
-   getWeather('forecast')
    return (
       <Routes>
          <Route path="/" element={<Home />} />

@@ -1,19 +1,18 @@
 import axios from 'axios'
 
 const BASE_URL = 'https://api.openweathermap.org/'
-const API_KEY = process.env.REACT_APP_API_KEY
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 
-const weatherApi = axios.create({
+const weathersApi = axios.create({
    baseURL: BASE_URL,
    headers: {
       accept: 'application/json',
    },
 })
 
-const fetchApi = async (url, params = {}) => {
+const fetchWeatherApi = async (url, params = {}) => {
    try {
-      const response = await weatherApi.get(url, { params })
-      console.log(response.data.list)
+      const response = await weathersApi.get(url, { params })
       return response
    } catch (error) {
       console.error(`API 요청 오류: ${error.message}`)
@@ -21,18 +20,19 @@ const fetchApi = async (url, params = {}) => {
    }
 }
 
-export const getWeather = (type = 'weather', q = 'incheon') => {
+export const getWeathers = (type, lat = 0, lon = 0) => {
    const endpoint = {
       weather: '/weather',
       forecast: '/forecast',
    }[type]
 
-   return fetchApi(`data/2.5${endpoint}`, {
-      q,
+   return fetchWeatherApi(`data/2.5${endpoint}`, {
+      lat,
+      lon,
       appid: API_KEY,
       units: 'metric',
       lang: 'kr',
    })
 }
 
-export default weatherApi
+export default weathersApi
