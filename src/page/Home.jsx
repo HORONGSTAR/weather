@@ -14,9 +14,7 @@ function Home() {
                <TodayBanner />
             </Grid>
             <Grid container spacing={2}>
-               <Grid size={6}>
-                  <WeatherCard />
-               </Grid>
+               <Grid size={6}></Grid>
                <Grid size={6}>
                   <AirPollutionCard />
                </Grid>

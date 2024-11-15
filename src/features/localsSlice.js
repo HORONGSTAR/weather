@@ -23,7 +23,6 @@ const localsSlice = createSlice({
          .addCase(fetchLocals.fulfilled, (state, action) => {
             state.localsLoading = false
             state.locals = [Number(action.payload.documents[0].y).toFixed(2), Number(action.payload.documents[0].x).toFixed(2)]
-            console.log(state.locals)
          })
          .addCase(fetchLocals.rejected, (state, action) => {
             state.localsLoading = false

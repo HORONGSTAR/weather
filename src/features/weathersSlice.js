@@ -10,7 +10,7 @@ const weathersSlice = createSlice({
    name: 'weathers',
    initialState: {
       weathersLoading: false,
-      weathers: [],
+      weathers: null,
       weathersError: null,
    },
    reducers: {},
