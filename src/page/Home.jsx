@@ -1,24 +1,26 @@
 import Menu from '../components/Menu'
 import TodayBanner from '../components/TodayBanner'
-import WeatherCard from '../components/weather/WeatherCard'
+import WeatherSection from '../components/mainContents/WeatherSection'
 import AirPollutionCard from '../components/airPollution/AirPollutionCard'
 import Footer from '../components/Footer'
-import Grid from '@mui/material/Grid2'
+import { Grid2 } from '@mui/material'
 
 function Home() {
    return (
       <>
          <Menu />
          <main>
-            <Grid container spacing={2}>
+            <Grid2 container spacing={2}>
                <TodayBanner />
-            </Grid>
-            <Grid container spacing={2}>
-               <Grid size={6}></Grid>
-               <Grid size={6}>
+            </Grid2>
+            <Grid2 container spacing={2}>
+               <Grid2 size={6}>
+                  <WeatherSection />
+               </Grid2>
+               <Grid2 size={6}>
                   <AirPollutionCard />
-               </Grid>
-            </Grid>
+               </Grid2>
+            </Grid2>
          </main>
          <Footer />
       </>

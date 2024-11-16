@@ -33,41 +33,42 @@ export const cites = [
    },
    {
       name: '경기도',
-      value: 'Gyeonggi',
+      value: 'Gyeonggi-do',
    },
    {
       name: '강원특별자치도',
-      value: 'Gangwon',
+      value: 'Gangwon-do',
    },
    {
       name: '충청북도',
-      value: 'Chungcheongbuk',
+      value: 'Chungcheongbuk-do',
    },
    {
       name: '충청남도',
-      value: 'Chungcheongnam',
+      value: 'Chungcheongnam-do',
    },
    {
       name: '전북특별자치도',
-      value: 'Jeollabuk',
+      value: 'Jeollabuk-do',
    },
    {
       name: '전라남도',
-      value: 'Jeollanam',
+      value: 'Jeollanam-do',
    },
    {
       name: '경상북도',
-      value: 'Gyeongsangbuk',
+      value: 'Gyeongsangbuk-do',
    },
    {
       name: '경상남도',
-      value: 'Gyeongsangnam',
+      value: 'Gyeongsangnam-do',
    },
    {
       name: '제주특별자치도',
-      value: 'Jeju',
+      value: 'Jeju-do',
    },
 ]
+
 export const address = {
    Seoul: [
       '종로구',
@@ -131,7 +132,7 @@ export const address = {
    Daejeon: ['동구', '중구', '서구', '유성구', '대덕구'],
    Ulsan: ['중구', '남구', '동구', '북구', '울주군'],
    Sejong: ['세종특별자치시'],
-   Gyeonggi: [
+   'Gyeonggi-do': [
       '수원시',
       '용인시',
       '고양시',
@@ -163,7 +164,7 @@ export const address = {
       '가평군',
       '연천군',
    ],
-   Gangwon: [
+   'Gangwon-do': [
       '춘천시',
       '원주시',
       '강릉시',
@@ -183,7 +184,7 @@ export const address = {
       '고성군',
       '양양군',
    ],
-   Chungcheongbuk: [
+   'Chungcheongbuk-do': [
       '청주시',
       '충주시',
       '제천시',
@@ -196,7 +197,7 @@ export const address = {
       '음성군',
       '단양군',
    ],
-   Chungcheongnam: [
+   'Chungcheongnam-do': [
       '천안시',
       '공주시',
       '보령시',
@@ -213,7 +214,7 @@ export const address = {
       '예산군',
       '태안군',
    ],
-   Jeollabuk: [
+   'Jeollabuk-do': [
       '전주시',
       '군산시',
       '익산시',
@@ -229,7 +230,7 @@ export const address = {
       '고창군',
       '부안군',
    ],
-   Jeollanam: [
+   'Jeollanam-do': [
       '목포시',
       '여수시',
       '순천시',
@@ -253,7 +254,7 @@ export const address = {
       '진도군',
       '신안군',
    ],
-   Gyeongsangbuk: [
+   'Gyeongsangbuk-do': [
       '포항시',
       '경주시',
       '김천시',
@@ -277,7 +278,7 @@ export const address = {
       '울진군',
       '울릉군',
    ],
-   Gyeongsangnam: [
+   'Gyeongsangnam-do': [
       '창원시',
       '진주시',
       '통영시',
@@ -297,7 +298,7 @@ export const address = {
       '거창군',
       '합천군',
    ],
-   Jeju: ['제주시', '서귀포시'],
+   'Jeju-do': ['제주시', '서귀포시'],
 }
 
 export const weatherDescKo = {

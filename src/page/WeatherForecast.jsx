@@ -6,9 +6,7 @@ function WeatheForecast() {
    return (
       <>
          <Menu />
-         <main>
-            <CityTap />
-         </main>
+         <CityTap />
          <Footer />
       </>
    )

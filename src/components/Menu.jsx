@@ -6,19 +6,24 @@ function Menu() {
          <nav>
             <ul>
                <li>
-                  <NavLink to="/">우리들의 기상청</NavLink>
+                  <NavLink to="/">
+                     <h4>우리들의 기상청</h4>
+                  </NavLink>
                </li>
                <li>
-                  <NavLink to="/">처음으로</NavLink>
+                  <NavLink to="/">
+                     <NavLink to="/weather">일기예보</NavLink>
+                  </NavLink>
                </li>
                <li>
-                  <NavLink to="/weather">일기예보</NavLink>
+                  <NavLink to="/">
+                     <NavLink to="/airPollution">미세먼지</NavLink>
+                  </NavLink>
                </li>
                <li>
-                  <NavLink to="/airPollution">미세먼지</NavLink>
-               </li>
-               <li>
-                  <NavLink to="/planetarium">작은 천문관</NavLink>
+                  <NavLink to="/">
+                     <NavLink to="/planetarium">작은 천문관</NavLink>
+                  </NavLink>
                </li>
             </ul>
          </nav>

@@ -35,4 +35,13 @@ export const getWeathers = (type, lat = 0, lon = 0) => {
    })
 }
 
+export const getCityWeathers = (q = 'seoul') => {
+   return fetchWeatherApi('data/2.5/weather', {
+      q,
+      appid: API_KEY,
+      units: 'metric',
+      lang: 'kr',
+   })
+}
+
 export default weathersApi
