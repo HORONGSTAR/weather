@@ -1,5 +1,5 @@
 import Menu from '../components/Menu'
-import AirPollutionCard from '../components/airPollution/AirPollutionCard'
+import AirPollutionBox from '../components/airPollution/AirPollutionBox'
 import AirPollutionDetail from '../components/airPollution/AirPollutionDetail'
 import AirPollutionMap from '../components/airPollution/AirPollutionMap'
 import Footer from '../components/Footer'
@@ -15,7 +15,7 @@ function AirPollution() {
                   <AirPollutionMap />
                </Grid>
                <Grid size={4}>
-                  <AirPollutionCard />
+                  <AirPollutionBox />
                </Grid>
                <Grid size={4}>
                   <AirPollutionDetail />

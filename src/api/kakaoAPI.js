@@ -21,7 +21,7 @@ const fetchKakaoApi = async (url, params = {}) => {
    }
 }
 
-export const getLocals = (query) => {
+export const getCoord = (query) => {
    return fetchKakaoApi('address.json', {
       query,
    })

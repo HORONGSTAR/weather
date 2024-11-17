@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchWeathers } from '../../features/weathersSlice'
+import { fetchSearchWeather } from '../../features/searchSlice'
 import { Grid2, Card, CardContent, CardMedia, Typography } from '@mui/material'
-import { weatherDescKo } from '../../features/InternaLdata'
+import { weatherDescKo } from '../../database/InternaLdata'
 
-function WeatherCard({ locals }) {
+function WeatherCard({ lon, lat }) {
    const dispatch = useDispatch()
-   const { weathers, weathersLoading, weathersError } = useSelector((state) => state.weathers)
+   const { weathers, loading, error } = useSelector((state) => state.search)
 
    useEffect(() => {
-      if (locals) {
-         dispatch(fetchWeathers({ type: 'weather', lat: locals[0], lon: locals[1] }))
+      if (lon && lat) {
+         dispatch(fetchSearchWeather({ type: 'weather', lat: lat, lon: lon }))
       }
-   }, [dispatch, locals])
-   if (weathersLoading) return <p>Loading...</p>
-   if (weathersError) return <p>Error: {weathersError}</p>
+   }, [dispatch, lon, lat])
+   if (loading) return <p>Loading...</p>
+   if (error) return <p>Error: {error}</p>
    return (
       <Grid2 container spacing={2}>
          {weathers && (

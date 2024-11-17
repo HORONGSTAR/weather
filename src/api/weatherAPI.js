@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://api.openweathermap.org/'
+const BASE_URL = 'https://api.openweathermap.org/data/2.5/'
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 
 const weathersApi = axios.create({
@@ -24,20 +24,12 @@ export const getWeathers = (type, lat = 0, lon = 0) => {
    const endpoint = {
       weather: '/weather',
       forecast: '/forecast',
+      air_pollution: '/air_pollution',
    }[type]
 
-   return fetchWeatherApi(`data/2.5${endpoint}`, {
+   return fetchWeatherApi(endpoint, {
       lat,
       lon,
-      appid: API_KEY,
-      units: 'metric',
-      lang: 'kr',
-   })
-}
-
-export const getCityWeathers = (q = 'seoul') => {
-   return fetchWeatherApi('data/2.5/weather', {
-      q,
       appid: API_KEY,
       units: 'metric',
       lang: 'kr',

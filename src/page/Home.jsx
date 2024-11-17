@@ -1,7 +1,7 @@
 import Menu from '../components/Menu'
 import TodayBanner from '../components/TodayBanner'
-import WeatherSection from '../components/mainContents/WeatherSection'
-import AirPollutionCard from '../components/airPollution/AirPollutionCard'
+import WeatherSlice from '../components/mainContents/WeatherSlice'
+import AirPollutionBox from '../components/airPollution/AirPollutionBox'
 import Footer from '../components/Footer'
 import { Grid2 } from '@mui/material'
 
@@ -15,10 +15,10 @@ function Home() {
             </Grid2>
             <Grid2 container spacing={2}>
                <Grid2 size={6}>
-                  <WeatherSection />
+                  <WeatherSlice />
                </Grid2>
                <Grid2 size={6}>
-                  <AirPollutionCard />
+                  <AirPollutionBox />
                </Grid2>
             </Grid2>
          </main>

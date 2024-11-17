@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import localsReducer from '../features/localsSlice'
-import weathersSlice from '../features/weathersSlice'
-import citesSlice from '../features/citesSlice'
+import coordReducer from '../features/coordSlice'
+import searchReducer from '../features/searchSlice'
+import localReducer from '../features/localSlice'
 
 const store = configureStore({
    reducer: {
-      locals: localsReducer,
-      weathers: weathersSlice,
-      cites: citesSlice,
+      coord: coordReducer,
+      search: searchReducer,
+      local: localReducer,
    },
 })
 
