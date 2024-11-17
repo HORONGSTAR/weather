@@ -6,20 +6,21 @@ import { weatherDescKo } from '../../database/InternaLdata'
 
 function ForecastCard({ lon, lat }) {
    const dispatch = useDispatch()
-   const { forecast, loading, error } = useSelector((state) => state.search)
+   const { forecasts, dataKeys, loading, error } = useSelector((state) => state.search)
 
    useEffect(() => {
       if (lon && lat) {
          dispatch(fetchSearchForecast({ type: 'forecast', lat: lat, lon: lon }))
       }
    }, [dispatch, lon, lat])
+
    if (loading) return <p>Loading...</p>
    if (error) return <p>Error: {error}</p>
 
    return (
       <Grid2>
-         {forecast &&
-            forecast.list.map((li) => (
+         {forecasts &&
+            forecasts.map((li, idx) => (
                <>
                   <List>
                      <ListItem>

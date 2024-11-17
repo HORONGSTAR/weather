@@ -27,7 +27,8 @@ const searchSlice = createSlice({
    initialState: {
       loading: false,
       weathers: null,
-      forecast: null,
+      forecasts: null,
+      dataKeys: null,
       airdatas: null,
       error: null,
    },
@@ -52,7 +53,15 @@ const searchSlice = createSlice({
          })
          .addCase(fetchSearchForecast.fulfilled, (state, action) => {
             state.loading = false
-            state.forecast = action.payload.data
+            const dataList = action.payload.data.list
+            const datas = {}
+
+            for (let data of dataList) {
+               let key = data['dt_txt'].split(' ')[0]
+               datas[key] = data
+            }
+            state.forecasts = action.payload.data.list
+            state.dataKeys = datas
          })
          .addCase(fetchSearchForecast.rejected, (state, action) => {
             state.loading = false
