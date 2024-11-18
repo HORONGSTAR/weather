@@ -6,7 +6,8 @@ import { weatherDescKo } from '../../database/InternaLdata'
 
 function ForecastCard({ lon, lat }) {
    const dispatch = useDispatch()
-   const { forecasts, dataKeys, loading, error } = useSelector((state) => state.search)
+   const { forecasts, loading, error } = useSelector((state) => state.search)
+   const [itemList, setItemList] = useState(null)
 
    useEffect(() => {
       if (lon && lat) {
@@ -14,21 +15,43 @@ function ForecastCard({ lon, lat }) {
       }
    }, [dispatch, lon, lat])
 
+   useEffect(() => {
+      if (!forecasts) return
+      const keys = forecasts.map((forecast) => forecast.dt_txt.split(' '))
+      const itemkey = keys.filter((key, idx) => idx === 0 || key[0] !== keys[idx - 1][0]).map((key) => key[0])
+
+      const itemList = {}
+      for (let i in itemkey) {
+         const items = []
+         for (let j in keys) {
+            if (itemkey[i] === keys[j][0]) items.push({ item: forecasts[j], hour: Number(keys[j][1].split(':')[0]) })
+            itemList[itemkey[i]] = items
+         }
+      }
+      setItemList({ ...itemList, keys: itemkey })
+      console.log(itemList)
+   }, [forecasts])
+
    if (loading) return <p>Loading...</p>
    if (error) return <p>Error: {error}</p>
 
    return (
       <Grid2>
-         {forecasts &&
-            forecasts.map((li, idx) => (
-               <>
-                  <List>
-                     <ListItem>
-                        {li['dt_txt']}
-                        {weatherDescKo[li.weather[0].id]}/온도 {li.main.temp.toFixed(1)}°C
-                     </ListItem>
-                  </List>
-               </>
+         {itemList &&
+            itemList.keys.map((key) => (
+               <List key={key}>
+                  <ListItem>
+                     {key.split('-')[0]}년 {key.split('-')[1]}월 {key.split('-')[2]}일
+                  </ListItem>
+                  {itemList[key].map((items) => (
+                     <>
+                        <ListItem>
+                           {items.hour}시 {weatherDescKo[items.item.weather[0].id]} {items.item.main.temp.toFixed(1)}°C
+                        </ListItem>
+                        <Divider />
+                     </>
+                  ))}
+               </List>
             ))}
       </Grid2>
    )

@@ -15,42 +15,16 @@ function WeatherSectionCard({ lat, lon, name }) {
 
    if (loading) return <p>Loading...</p>
    if (error) return <p>Error: {error}</p>
-   console.log(weathers)
    return (
       <>
          {weathers[key] && (
             <Card variant="outlined" sx={{ maxWidth: 600 }}>
-               <Grid2 container>
-                  <Grid2 size={6}>
-                     <CardMedia
-                        component="img"
-                        image={`https://openweathermap.org/img/wn/${
-                           weathers[key].weather[0]
-                              ? weathers[key].weather[0].icon
-                              : Date.getHours() > 5 && Date.getHours() < 18
-                              ? '01d'
-                              : '01n'
-                        }@4x.png`}
-                        alt={weatherDescKo[weathers[key].weather[0].id]}
-                     />
-                  </Grid2>
-                  <Grid2
-                     size={6}
-                     sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
-                  >
-                     <Typography variant="subtitle2">{name}</Typography>
-                     <Typography variant="h6">
-                        {weatherDescKo[weathers[key].weather[0].id]}
-                     </Typography>
-                  </Grid2>
-               </Grid2>
+               <CardMedia component="img" image={weathers[key].weather[0] ? `https://openweathermap.org/img/wn/${weathers[key].weather[0].icon}@4x.png` : './images/logo.png'} alt={weatherDescKo[weathers[key].weather[0].id]} />
                <CardContent>
-                  <Typography variant="body1">
-                     현재 온도 {weathers[key].main.temp.toFixed(1)}°C
-                  </Typography>
-                  <Typography variant="body2">
-                     체감 온도 {weathers[key].main.feels_like.toFixed(1)}°C
-                  </Typography>
+                  <Typography variant="subtitle2">{name}</Typography>
+                  <Typography variant="h6">{weatherDescKo[weathers[key].weather[0].id]}</Typography>
+                  <Typography variant="body2">현재 온도 {weathers[key].main.temp.toFixed(1)}°C</Typography>
+                  <Typography variant="body2">체감 온도 {weathers[key].main.feels_like.toFixed(1)}°C</Typography>
                </CardContent>
             </Card>
          )}

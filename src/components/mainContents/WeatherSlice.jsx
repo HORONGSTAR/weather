@@ -7,12 +7,28 @@ import { Autoplay } from 'swiper/modules'
 function WeatherSection() {
    return (
       <>
+         <p>오늘의 날씨는?</p>
          <Swiper
-            slidesPerView={2}
+            slidesPerView={3}
             spaceBetween={10}
+            loop={true}
             autoplay={{
                delay: 2500,
                disableOnInteraction: false,
+            }}
+            breakpoints={{
+               640: {
+                  slidesPerView: 4,
+                  spaceBetween: 10,
+               },
+               768: {
+                  slidesPerView: 5,
+                  spaceBetween: 10,
+               },
+               1024: {
+                  slidesPerView: 6,
+                  spaceBetween: 10,
+               },
             }}
             modules={[Autoplay]}
             className="mySwiper"
@@ -20,11 +36,7 @@ function WeatherSection() {
             {localDatas.map((localData) => (
                <>
                   <SwiperSlide>
-                     <WeatherSliceCard
-                        lat={localData.lat}
-                        lon={localData.lon}
-                        name={localData.name}
-                     />
+                     <WeatherSliceCard lat={localData.lat} lon={localData.lon} name={localData.name} />
                   </SwiperSlide>
                </>
             ))}

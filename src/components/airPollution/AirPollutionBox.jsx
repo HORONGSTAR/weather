@@ -1,4 +1,5 @@
-import AirPollutionBoxText from './AirPollutionBoxText'
+import AirPollutionList from './AirPollutionList'
+import AirPollutionMap from './AirPollutionMap'
 import { localDatas } from '../../database/InternaLdata'
 import { List, ListItem, Divider } from '@mui/material'
 
@@ -19,11 +20,7 @@ function AirPollutionBox() {
             {localDatas.map((localData) => (
                <>
                   <ListItem>
-                     <AirPollutionBoxText
-                        lat={localData.lat}
-                        lon={localData.lon}
-                        name={localData.name}
-                     />
+                     <AirPollutionList lat={localData.lat} lon={localData.lon} name={localData.name} />
                   </ListItem>
                   <Divider component="li" />
                </>

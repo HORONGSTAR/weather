@@ -11,11 +11,9 @@ function AirPollution() {
          <Menu />
          <main>
             <Grid container spacing={2}>
-               <Grid size={8}>
-                  <AirPollutionMap />
-               </Grid>
+               <Grid size={8}></Grid>
                <Grid size={4}>
-                  <AirPollutionBox />
+                  <AirPollutionBox output={true} />
                </Grid>
                <Grid size={4}>
                   <AirPollutionDetail />

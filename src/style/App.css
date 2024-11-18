@@ -1,0 +1,27 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Gaegu&family=Gamja+Flower&display=swap');
+
+* {
+   font-family: 'pretendard', sans-serif;
+   color: #222;
+}
+body {
+   margin: 0;
+   padding: 0;
+}
+ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+header > nav ul {
+   display: flex;
+   align-items: center;
+}
+header > nav li {
+   padding: 20px;
+}
+header > nav a {
+   text-decoration: none;
+}
