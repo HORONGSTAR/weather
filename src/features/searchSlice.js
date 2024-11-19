@@ -22,7 +22,6 @@ const searchSlice = createSlice({
       loading: false,
       weathers: null,
       forecasts: null,
-      dataKeys: null,
       airdatas: null,
       error: null,
    },

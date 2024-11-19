@@ -11,19 +11,13 @@ function Menu() {
                   </NavLink>
                </li>
                <li>
-                  <NavLink to="/">
-                     <NavLink to="/weather">일기예보</NavLink>
-                  </NavLink>
+                  <NavLink to="/forecast">일기예보</NavLink>
                </li>
                <li>
-                  <NavLink to="/">
-                     <NavLink to="/airPollution">미세먼지</NavLink>
-                  </NavLink>
+                  <NavLink to="/airPollution">미세먼지</NavLink>
                </li>
                <li>
-                  <NavLink to="/">
-                     <NavLink to="/planetarium">작은 천문관</NavLink>
-                  </NavLink>
+                  <NavLink to="/planetarium">작은 천문관</NavLink>
                </li>
             </ul>
          </nav>

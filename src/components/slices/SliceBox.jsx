@@ -1,13 +1,12 @@
-import WeatherSliceCard from './WeatherSliceCard'
+import SliceItme from './SliceItme'
 import { localDatas } from '../../database/InternaLdata'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { Autoplay } from 'swiper/modules'
 
-function WeatherSection() {
+function SliceBox() {
    return (
       <>
-         <p>오늘의 날씨는?</p>
          <Swiper
             slidesPerView={3}
             spaceBetween={10}
@@ -17,18 +16,9 @@ function WeatherSection() {
                disableOnInteraction: false,
             }}
             breakpoints={{
-               640: {
-                  slidesPerView: 4,
-                  spaceBetween: 10,
-               },
-               768: {
-                  slidesPerView: 5,
-                  spaceBetween: 10,
-               },
-               1024: {
-                  slidesPerView: 6,
-                  spaceBetween: 10,
-               },
+               600: { slidesPerView: 2 },
+               900: { slidesPerView: 4 },
+               1200: { slidesPerView: 5 },
             }}
             modules={[Autoplay]}
             className="mySwiper"
@@ -36,7 +26,7 @@ function WeatherSection() {
             {localDatas.map((localData) => (
                <>
                   <SwiperSlide>
-                     <WeatherSliceCard lat={localData.lat} lon={localData.lon} name={localData.name} />
+                     <SliceItme lat={localData.lat} lon={localData.lon} name={localData.name} />
                   </SwiperSlide>
                </>
             ))}
@@ -45,4 +35,4 @@ function WeatherSection() {
    )
 }
 
-export default WeatherSection
+export default SliceBox

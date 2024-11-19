@@ -1,15 +1,17 @@
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
 import CityTap from '../components/details/CityTap'
+import ForecastList from '../components/details/ForecastList'
 
-function AirPollution() {
+function Forecast() {
    return (
       <>
          <Menu />
-         <CityTap />
+         <CityTap page={'forecast'} />
+         <ForecastList page={'forecast'} />
          <Footer />
       </>
    )
 }
 
-export default AirPollution
+export default Forecast

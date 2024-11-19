@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSearchForecast } from '../../features/searchSlice'
 import { Grid2, List, ListItem, Divider } from '@mui/material'
-import { weatherDescKo } from '../../database/InternaLdata'
+import { weatherKo } from '../../database/weatherKo'
 
 function ForecastCard({ lon, lat }) {
    const dispatch = useDispatch()
@@ -46,7 +46,7 @@ function ForecastCard({ lon, lat }) {
                   {itemList[key].map((items) => (
                      <>
                         <ListItem>
-                           {items.hour}시 {weatherDescKo[items.item.weather[0].id]} {items.item.main.temp.toFixed(1)}°C
+                           {items.hour}시 {weatherKo[items.item.weather[0].id]} {items.item.main.temp.toFixed(1)}°C
                         </ListItem>
                         <Divider />
                      </>

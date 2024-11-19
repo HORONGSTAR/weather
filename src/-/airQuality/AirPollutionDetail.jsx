@@ -1,5 +1,5 @@
 function AirPollutionDetail() {
-   return <></>
+   return <>구현중</>
 }
 
 export default AirPollutionDetail

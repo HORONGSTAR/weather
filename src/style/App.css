@@ -15,6 +15,20 @@ ul {
    margin: 0;
 }
 
+::-webkit-scrollbar {
+   width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+   height: 30%;
+   background: skyblue;
+   border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+   background: rgba(33, 122, 244, 0.1);
+}
+
 header > nav ul {
    display: flex;
    align-items: center;

@@ -3,7 +3,7 @@ import axios from 'axios'
 const BASE_URL = 'https://dapi.kakao.com/v2/local/search/'
 const API_KEY = process.env.REACT_APP_KAKAO_API_KEY
 
-const localsApi = axios.create({
+const kakaoApi = axios.create({
    baseURL: BASE_URL,
    headers: {
       Authorization: `KakaoAK ${API_KEY}`,
@@ -13,7 +13,7 @@ const localsApi = axios.create({
 
 const fetchKakaoApi = async (url, params = {}) => {
    try {
-      const response = await localsApi.get(url, { params })
+      const response = await kakaoApi.get(url, { params })
       return response
    } catch (error) {
       console.error(`API 요청 오류: ${error.message}`)
@@ -27,4 +27,4 @@ export const getCoord = (query) => {
    })
 }
 
-export default localsApi
+export default kakaoApi
