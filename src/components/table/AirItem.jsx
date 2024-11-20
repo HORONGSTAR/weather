@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchLocalAir } from '../../features/localSlice'
 import { FaRegFaceMeh } from 'react-icons/fa6'
 
-function TableItem({ lat, lon, name }) {
+function AirItem({ lat, lon, name }) {
    const dispatch = useDispatch()
    const { loading, airdatas, error } = useSelector((state) => state.local)
    const key = lon + '.' + lat
@@ -67,4 +67,4 @@ function TableItem({ lat, lon, name }) {
    )
 }
 
-export default TableItem
+export default AirItem

@@ -1,5 +1,5 @@
 import { localDatas } from '../../database/InternaLdata'
-import TableItem from './TableItem'
+import AirItem from './AirItem'
 import {
    Card,
    Table,
@@ -10,7 +10,7 @@ import {
    TableRow,
 } from '@mui/material'
 
-function TableBox() {
+function AirTable() {
    return (
       <Card variant="outlined">
          <TableContainer sx={{ minWidth: '290px', height: '300px' }}>
@@ -31,7 +31,7 @@ function TableBox() {
 
                <TableBody>
                   {localDatas.map((localData) => (
-                     <TableItem lat={localData.lat} lon={localData.lon} name={localData.name} />
+                     <AirItem lat={localData.lat} lon={localData.lon} name={localData.name} />
                   ))}
                </TableBody>
             </Table>
@@ -40,4 +40,4 @@ function TableBox() {
    )
 }
 
-export default TableBox
+export default AirTable

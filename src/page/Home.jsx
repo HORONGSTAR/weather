@@ -1,7 +1,7 @@
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
 import SliceBox from '../components/slices/SliceBox'
-import TableBox from '../components/table/TableBox'
+import AirTable from '../components/table/AirTable'
 import Banner from '../components/Banner'
 import { Grid2 } from '@mui/material'
 
@@ -15,7 +15,7 @@ function Home() {
                <SliceBox />
             </Grid2>
             <Grid2 size={{ xs: 12, sm: 6, md: 4 }}>
-               <TableBox />
+               <AirTable />
             </Grid2>
          </Grid2>
          <Footer />

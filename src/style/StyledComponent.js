@@ -6,6 +6,14 @@ export const Wrap = styled.div`
    overflow: hidden;
 `
 
+export const WindDeg = styled.div`
+   transform: rotate(${(props) => props.$deg || 0}deg);
+   margin: 0;
+   padding: 0;
+   width: 20px;
+   height: 20px;
+`
+
 export const bannerSx = [
    {
       width: '100%',
@@ -36,5 +44,26 @@ export const sliceItmeSx = [
       backgroundColor: 'skyblue',
       display: 'flex',
       alignItems: 'center',
+   },
+   {
+      display: 'flex',
+      width: '100%',
+      height: '300px',
+      alignItems: 'center',
+   },
+]
+
+export const skycolors = (hour) => [
+   {
+      bgcolor:
+         hour >= 21
+            ? 'Thistle'
+            : hour >= 18
+            ? 'Pink'
+            : hour >= 9
+            ? 'LightBlue'
+            : hour >= 6
+            ? 'Wheat'
+            : 'Thistle',
    },
 ]

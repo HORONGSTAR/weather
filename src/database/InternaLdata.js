@@ -444,3 +444,13 @@ export const weatherKo = {
 }
 
 export const iconSrc = ['https://openweathermap.org/img/wn/', '@4x.png', './images/logo.png']
+
+const today = new Date()
+export const todays = {
+   year: today.getFullYear(),
+   month: today.getMonth() + 1,
+   date: today.getDate(),
+   day: today.getDay(),
+   hout: today.getHours(),
+   week: ['일', '월', '화', '수', '목', '금', '토'],
+}

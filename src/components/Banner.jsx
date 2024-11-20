@@ -1,16 +1,8 @@
 import { Box } from '@mui/material'
 import { bannerSx } from '../style/StyledComponent'
+import { todays } from '../database/InternaLdata'
 
 function Banner() {
-   const today = new Date()
-   const todays = {
-      year: today.getFullYear(),
-      month: today.getMonth() + 1,
-      date: today.getDate(),
-      day: today.getDay(),
-      week: ['일', '월', '화', '수', '목', '금', '토'],
-   }
-
    return (
       <>
          <Box sx={bannerSx[0]}>

@@ -1,12 +1,12 @@
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
-import CityTap from '../components/details/CityTap'
+import CitySelect from '../components/details/CitySelect'
 
 function AirPollution() {
    return (
       <>
          <Menu />
-         <CityTap />
+         <CitySelect />
          <Footer />
       </>
    )

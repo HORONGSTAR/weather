@@ -1,14 +1,14 @@
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
-import CityTap from '../components/details/CityTap'
-import ForecastList from '../components/details/ForecastList'
+import CitySelect from '../components/details/CitySelect'
+import ForecastTap from '../components/taps/ForecastTap'
 
 function Forecast() {
    return (
       <>
          <Menu />
-         <CityTap page={'forecast'} />
-         <ForecastList page={'forecast'} />
+         <CitySelect page={'forecast'} />
+         <ForecastTap page={'forecast'} />
          <Footer />
       </>
    )

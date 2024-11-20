@@ -4,7 +4,7 @@ import { fetchCoord } from '../../features/coordSlice'
 import { Select, InputLabel, MenuItem, FormControl } from '@mui/material'
 import { cityDatas, address } from '../../database/InternaLdata'
 
-function CityTap({ page }) {
+function CitySelect({ page }) {
    const dispatch = useDispatch()
    const [cityValue, setcityValue] = useState('')
    const [itemValue, setitemValue] = useState(null)
@@ -59,4 +59,4 @@ function CityTap({ page }) {
    )
 }
 
-export default CityTap
+export default CitySelect
