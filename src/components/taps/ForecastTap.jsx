@@ -4,6 +4,7 @@ import { fetchSearchForecast } from '../../features/searchSlice'
 import ForecastTable from '../table/ForecastTable'
 import { Box, Tab } from '@mui/material'
 import { TabContext, TabList } from '@mui/lab'
+import { todays } from '../../database/InternaLdata'
 
 function ForecastTap() {
    const dispatch = useDispatch()
@@ -40,7 +41,7 @@ function ForecastTap() {
 
    useEffect(() => {
       if (itemList && isFirstLoad.current) {
-         setValue(itemList.keys[0])
+         setValue(itemList.keys[1])
          isFirstLoad.current = false
          return
       }
@@ -57,17 +58,28 @@ function ForecastTap() {
       <Box sx={{ width: '100%', typography: 'body1' }}>
          <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-               <TabList onChange={handleChange} aria-label="lab API tabs example">
+               <TabList
+                  onChange={handleChange}
+                  aria-label="lab API tabs example"
+                  centered
+                  scrollButtons
+                  allowScrollButtonsMobile
+                  variant="scrollable"
+               >
                   {itemList &&
-                     itemList.keys.map((key) => (
-                        <Tab
-                           label={`${key.split('-')[0]}년 ${key.split('-')[1]}월 ${
-                              key.split('-')[2]
-                           }일`}
-                           value={key}
-                           key={key}
-                        />
-                     ))}
+                     itemList.keys.map(
+                        (key, idx) =>
+                           idx !== 0 && (
+                              <Tab
+                                 label={
+                                    todays.week[new Date(key).getDay()] +
+                                    (idx === 1 ? '요일(내일)' : '요일')
+                                 }
+                                 value={key}
+                                 key={key}
+                              />
+                           )
+                     )}
                </TabList>
             </Box>
             <ForecastTable itemList={itemList} />

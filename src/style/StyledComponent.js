@@ -14,6 +14,23 @@ export const WindDeg = styled.div`
    height: 20px;
 `
 
+export const Text = styled.p`
+   font-size: 16px;
+   white-space: nowrap;
+
+   ${(props) =>
+      props.$media
+         ? '@media (max-width: 600px) { letter-spacing: -1px; font-size: 14px;  white-space: normal; word-break: break-all;}'
+         : '@media (max-width: 600px) { letter-spacing: -1px; font-size: 14px;  }'}
+`
+
+export const UnitSpan = styled.span`
+   @media (max-width: 600px) {
+      font-size: 10px;
+      color: gray;
+   }
+`
+
 export const bannerSx = [
    {
       width: '100%',
@@ -65,5 +82,13 @@ export const skycolors = (hour) => [
             : hour >= 6
             ? 'Wheat'
             : 'Thistle',
+   },
+]
+
+export const avatarSx = [
+   {
+      width: '40px',
+      height: '40px',
+      marginRight: '5px',
    },
 ]

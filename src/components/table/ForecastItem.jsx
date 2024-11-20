@@ -1,14 +1,15 @@
-import { TableRow, TableCell, Avatar, Box, Typography } from '@mui/material'
+import { TableRow, TableCell, Avatar, Box } from '@mui/material'
 import { weatherKo, iconSrc } from '../../database/InternaLdata'
-import { skycolors, WindDeg } from '../../style/StyledComponent'
-
+import { skycolors, WindDeg, Text, avatarSx, UnitSpan } from '../../style/StyledComponent'
 import { FaArrowUpLong } from 'react-icons/fa6'
 
 function ForecastItem({ items }) {
    return (
       <TableRow>
-         <TableCell align="center">{items.hour}시</TableCell>
-         <TableCell colSpan={2}>
+         <TableCell align="center">
+            <Text>{items.hour}시 경</Text>
+         </TableCell>
+         <TableCell>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                <Avatar
                   src={
@@ -21,15 +22,31 @@ function ForecastItem({ items }) {
                         : iconSrc[3]
                   }
                   alt={weatherKo[items.item.weather[0].id]}
-                  sx={skycolors(items.hour)}
+                  sx={skycolors(items.hour).concat(avatarSx)}
                />
-               <Typography>&nbsp;&nbsp;{weatherKo[items.item.weather[0].id]}</Typography>
+               <Text $media={true}>{weatherKo[items.item.weather[0].id]}</Text>
             </Box>
          </TableCell>
-         <TableCell align="center">{items.item.main.temp.toFixed(1)}°C</TableCell>
-         <TableCell align="center">{items.item.main.feels_like.toFixed(1)}°C</TableCell>
-         <TableCell align="center">{items.item.main.humidity}%</TableCell>
-         <TableCell align="center">{items.item.wind.speed}m/s</TableCell>
+         <TableCell align="center">
+            <Text>
+               {items.item.main.temp.toFixed(1)} <UnitSpan>°C</UnitSpan>
+            </Text>
+         </TableCell>
+         <TableCell align="center">
+            <Text>
+               {items.item.main.feels_like.toFixed(1)} <UnitSpan>°C</UnitSpan>
+            </Text>
+         </TableCell>
+         <TableCell align="center">
+            <Text>
+               {items.item.main.humidity} <UnitSpan>%</UnitSpan>
+            </Text>
+         </TableCell>
+         <TableCell align="center">
+            <Text>
+               {items.item.wind.speed.toFixed(1)} <UnitSpan>m/s</UnitSpan>
+            </Text>
+         </TableCell>
          <TableCell align="center">
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                <WindDeg $deg={items.item.wind.deg}>

@@ -451,6 +451,6 @@ export const todays = {
    month: today.getMonth() + 1,
    date: today.getDate(),
    day: today.getDay(),
-   hout: today.getHours(),
+   hour: today.getHours(),
    week: ['일', '월', '화', '수', '목', '금', '토'],
 }

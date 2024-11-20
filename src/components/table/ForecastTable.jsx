@@ -7,7 +7,9 @@ import {
    TableContainer,
    TableHead,
    TableRow,
+   Typography,
 } from '@mui/material'
+import { Text } from '../../style/StyledComponent'
 import { TabPanel } from '@mui/lab'
 
 function ForecastTable({ itemList }) {
@@ -15,32 +17,35 @@ function ForecastTable({ itemList }) {
       <>
          {itemList &&
             itemList.keys.map((key) => (
-               <TabPanel value={key}>
+               <TabPanel value={key} sx={{ padding: '0' }}>
+                  <Typography variant="body2" align="right" color="gray">
+                     {key.split('-')[0]}년 {key.split('-')[1]}월 {key.split('-')[2]}일&nbsp;
+                  </Typography>
                   <Card variant="outlined">
                      <TableContainer>
-                        <Table aria-label="simple table">
+                        <Table sx={{ minWidth: '600px' }} aria-label="simple table">
                            <TableHead>
                               <TableRow>
                                  <TableCell align="center" size="small">
-                                    시각
-                                 </TableCell>
-                                 <TableCell align="center" colSpan={2} size="small">
-                                    날씨
+                                    <Text>시각</Text>
                                  </TableCell>
                                  <TableCell align="center" size="small">
-                                    온도
+                                    <Text>날씨</Text>
                                  </TableCell>
                                  <TableCell align="center" size="small">
-                                    체감 온도
+                                    <Text>온도</Text>
                                  </TableCell>
                                  <TableCell align="center" size="small">
-                                    습도
+                                    <Text>체감 온도</Text>
                                  </TableCell>
                                  <TableCell align="center" size="small">
-                                    풍속
+                                    <Text>습도</Text>
                                  </TableCell>
                                  <TableCell align="center" size="small">
-                                    풍향
+                                    <Text>풍속</Text>
+                                 </TableCell>
+                                 <TableCell align="center" size="small">
+                                    <Text>풍향</Text>
                                  </TableCell>
                               </TableRow>
                            </TableHead>
