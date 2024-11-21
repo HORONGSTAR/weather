@@ -6,6 +6,12 @@ export const Wrap = styled.div`
    overflow: hidden;
 `
 
+export const Main = styled.div`
+   display: flex;
+   justify-content: center;
+   align-items: center;
+`
+
 export const WindDeg = styled.div`
    transform: rotate(${(props) => props.$deg || 0}deg);
    margin: 0;
@@ -26,8 +32,8 @@ export const Text = styled.p`
 
 export const UnitSpan = styled.span`
    @media (max-width: 600px) {
-      font-size: 10px;
-      color: gray;
+      font-size: ${(props) => props.$size || 10}px;
+      color: ${(props) => props.$textcolor || 'gray'};
    }
 `
 
@@ -85,10 +91,11 @@ export const skycolors = (hour) => [
    },
 ]
 
-export const avatarSx = [
+export const avatarSx = (size) => [
    {
-      width: '40px',
-      height: '40px',
+      width: (size || '40') + 'px',
+      height: (size || '40') + 'px',
       marginRight: '5px',
+      borderRadius: '20px',
    },
 ]

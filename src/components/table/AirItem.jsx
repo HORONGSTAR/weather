@@ -3,8 +3,9 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchLocalAir } from '../../features/localSlice'
 import { FaRegFaceMeh } from 'react-icons/fa6'
+import { airLevels } from '../../database/InternaLdata'
 
-function AirItem({ lat, lon, name }) {
+function AirItem({ lat, lon, name, detail }) {
    const dispatch = useDispatch()
    const { loading, airdatas, error } = useSelector((state) => state.local)
    const key = lon + '.' + lat
@@ -30,40 +31,19 @@ function AirItem({ lat, lon, name }) {
       )
 
    return (
-      <TableRow>
-         <TableCell align="center">{name}</TableCell>
-         <TableCell align="center">
-            {airdatas[key] && (
-               <>
-                  {airdatas[key].pm10 > 150 ? (
-                     '매우 나쁨'
-                  ) : airdatas[key].pm10 > 80 ? (
-                     '나쁨'
-                  ) : airdatas[key].pm10 > 30 ? (
-                     <>
-                        보통
-                        <FaRegFaceMeh />
-                     </>
-                  ) : (
-                     <>좋음</>
-                  )}
-               </>
-            )}
-         </TableCell>
-         <TableCell align="center">
-            {airdatas[key] && (
-               <>
-                  {airdatas[key].pm2_5 > 75
-                     ? '매우 나쁨'
-                     : airdatas[key].pm2_5 > 35
-                     ? '나쁨'
-                     : airdatas[key].pm2_5 > 15
-                     ? '보통'
-                     : '좋음'}
-               </>
-            )}
-         </TableCell>
-      </TableRow>
+      <>
+         <TableRow>
+            <TableCell align="center">{name}</TableCell>
+            <TableCell align="center">
+               {airdatas[key] && airLevels('pm10', airdatas[key])}
+            </TableCell>
+            {detail && airdatas[key] && <TableCell>{airdatas[key].pm10}</TableCell>}
+            <TableCell align="center">
+               {airdatas[key] && airLevels('pm2_5', airdatas[key])}
+            </TableCell>
+            {detail && airdatas[key] && <TableCell>{airdatas[key].pm2_5}</TableCell>}
+         </TableRow>
+      </>
    )
 }
 

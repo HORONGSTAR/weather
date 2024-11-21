@@ -128,9 +128,26 @@ export const localDatas = [
 
 export const keys = () => {
    const result = {}
-   const coords = localDatas.map((localDate) => localDate.lon + '.' + localDate.lat)
+   const coords = localDatas.map((localDate) => localDate.key)
    for (let coord of coords) {
       result[coord] = null
+   }
+
+   return result
+}
+
+export const airLevels = (type, values) => {
+   let value = values[type]
+   let result
+   switch (type) {
+      case 'pm10':
+         result = value > 150 ? '매우 나쁨' : value > 80 ? '나쁨' : value > 30 ? '보통' : '좋음'
+         break
+      case 'pm2_5':
+         result = value > 75 ? '매우 나쁨' : value > 35 ? '나쁨' : value > 15 ? '보통' : '좋음'
+         break
+      default:
+         break
    }
    return result
 }

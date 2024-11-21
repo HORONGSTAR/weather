@@ -23,7 +23,7 @@ function ForecastTable({ itemList }) {
                   </Typography>
                   <Card variant="outlined">
                      <TableContainer>
-                        <Table sx={{ minWidth: '600px' }} aria-label="simple table">
+                        <Table aria-label="simple table">
                            <TableHead>
                               <TableRow>
                                  <TableCell align="center" size="small">
@@ -32,20 +32,14 @@ function ForecastTable({ itemList }) {
                                  <TableCell align="center" size="small">
                                     <Text>날씨</Text>
                                  </TableCell>
-                                 <TableCell align="center" size="small">
-                                    <Text>온도</Text>
-                                 </TableCell>
-                                 <TableCell align="center" size="small">
-                                    <Text>체감 온도</Text>
+                                 <TableCell align="center" size="small" colSpan={2}>
+                                    <Text>온도 / 체감 온도</Text>
                                  </TableCell>
                                  <TableCell align="center" size="small">
                                     <Text>습도</Text>
                                  </TableCell>
-                                 <TableCell align="center" size="small">
-                                    <Text>풍속</Text>
-                                 </TableCell>
-                                 <TableCell align="center" size="small">
-                                    <Text>풍향</Text>
+                                 <TableCell align="center" size="small" colSpan={2}>
+                                    <Text>풍속 / 풍향</Text>
                                  </TableCell>
                               </TableRow>
                            </TableHead>

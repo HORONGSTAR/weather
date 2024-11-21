@@ -7,7 +7,10 @@ function ForecastItem({ items }) {
    return (
       <TableRow>
          <TableCell align="center">
-            <Text>{items.hour}시 경</Text>
+            <Text>
+               {items.hour}
+               <UnitSpan>시 경</UnitSpan>
+            </Text>
          </TableCell>
          <TableCell>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>

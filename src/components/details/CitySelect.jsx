@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCoord } from '../../features/coordSlice'
-import { Select, InputLabel, MenuItem, FormControl } from '@mui/material'
+import { Select, InputLabel, MenuItem, FormControl, Box } from '@mui/material'
 import { cityDatas, address } from '../../database/InternaLdata'
 
 function CitySelect({ page }) {
@@ -20,7 +20,7 @@ function CitySelect({ page }) {
    const labelId = 'demo-simple-select-helper-label'
 
    return (
-      <>
+      <Box padding={'20px'}>
          <FormControl sx={{ m: 1, width: 300 }}>
             <InputLabel id={labelId}>어느 지역의 날씨를 볼까요?</InputLabel>
             <Select
@@ -55,7 +55,7 @@ function CitySelect({ page }) {
          )}
          {loading && <p>정보를 찾아오는 중...</p>}
          {error && <p>문제가 생겼어요! {error}</p>}
-      </>
+      </Box>
    )
 }
 
