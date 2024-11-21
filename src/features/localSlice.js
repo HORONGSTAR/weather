@@ -21,6 +21,7 @@ const localSlice = createSlice({
       loading: false,
       weathers: { ...keys },
       airdatas: { ...keys },
+      airpoint: null,
       error: null,
    },
    reducers: {},
@@ -49,6 +50,7 @@ const localSlice = createSlice({
                pm10: action.payload.data.list[0].components.pm10,
                pm2_5: action.payload.data.list[0].components.pm2_5,
             }
+            state.airpoint = state.airdatas
          })
          .addCase(fetchLocalAir.rejected, (state, action) => {
             state.loading = false
