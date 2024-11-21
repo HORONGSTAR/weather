@@ -7,7 +7,7 @@ function Menu() {
             <ul>
                <li>
                   <NavLink to="/">
-                     <h4>우리들의 기상청</h4>
+                     <img src="images/logo.png" alt="우리들의 기상청" width={200} />
                   </NavLink>
                </li>
                <li>

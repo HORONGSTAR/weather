@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchLocalWeather } from '../../features/localSlice'
 import { Box, Card, CardContent, CardMedia, Typography, LinearProgress } from '@mui/material'
 import { weatherKo, iconSrc, todays } from '../../database/InternaLdata'
-import { sliceItmeSx } from '../../style/StyledComponent'
+import { sliceItmeSx, skycolors } from '../../style/StyledComponent'
 
 function SliceItme({ lat, lon, name }) {
    const dispatch = useDispatch()
@@ -27,7 +27,7 @@ function SliceItme({ lat, lon, name }) {
       <>
          {weathers[key] && (
             <Card variant="outlined" sx={sliceItmeSx[0]}>
-               <Box sx={sliceItmeSx[1]}>
+               <Box sx={skycolors(todays.hour).concat(sliceItmeSx[1])}>
                   <CardMedia
                      component="img"
                      image={

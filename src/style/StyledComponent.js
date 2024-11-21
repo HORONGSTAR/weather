@@ -4,6 +4,7 @@ export const Wrap = styled.div`
    margin: 0 auto;
    max-width: 1200px;
    overflow: hidden;
+   padding: 10px;
 `
 
 export const Main = styled.div`
@@ -37,22 +38,22 @@ export const UnitSpan = styled.span`
    }
 `
 
-export const bannerSx = [
+export const bannerSx = (size) => [
    {
-      width: '100%',
-      height: '200px',
-      margin: '20px 0',
+      width: '90%',
+      height: '300px',
+      margin: '50px auto',
       display: 'flex',
+      flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'skyblue',
-      borderRadius: '2px',
+      borderRadius: '3px',
    },
    {
       padding: '10px',
-      fontFamily: 'Gamja Flower, sans-serif',
-      fontSize: '24px',
-      fontWeight: 'bold',
+      fontFamily: 'HakgyoansimBunpilR, sans-serif',
+      fontSize: size || '30px',
+      color: 'white',
    },
 ]
 
@@ -64,7 +65,6 @@ export const sliceItmeSx = [
    },
    {
       height: '150px',
-      backgroundColor: 'skyblue',
       display: 'flex',
       alignItems: 'center',
    },

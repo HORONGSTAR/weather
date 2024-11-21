@@ -21,7 +21,7 @@ function CitySelect({ page }) {
 
    return (
       <Box padding={'20px'}>
-         <FormControl sx={{ m: 1, width: 300 }}>
+         <FormControl sx={{ m: 1, width: '100%' }}>
             <InputLabel id={labelId}>어느 지역의 날씨를 볼까요?</InputLabel>
             <Select
                labelId={labelId}
@@ -37,7 +37,7 @@ function CitySelect({ page }) {
             </Select>
          </FormControl>
          {cityValue && (
-            <FormControl sx={{ m: 1, width: 300 }}>
+            <FormControl sx={{ m: 1, width: '100%' }}>
                <InputLabel id={labelId}>우리 동네를 골라보아요!</InputLabel>
                <Select
                   labelId={labelId}

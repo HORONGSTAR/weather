@@ -1,6 +1,12 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Gaegu&family=Gamja+Flower&display=swap');
 
+@font-face {
+   font-family: 'HakgyoansimBunpilR';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimBunpilR.woff2')
+      format('woff2');
+}
+
 * {
    font-family: 'pretendard', sans-serif;
    color: #222;
@@ -30,6 +36,10 @@ ul {
    background: rgba(33, 122, 244, 0.1);
 }
 
+header {
+   padding-top: 40px;
+}
+
 header > nav ul {
    display: flex;
    align-items: center;
@@ -39,4 +49,11 @@ header > nav li {
 }
 header > nav a {
    text-decoration: none;
+}
+
+.banner {
+   background-image: url(../../public/images/sky.jpg);
+   background-size: cover;
+   background-position: bottom;
+   border-radius: 10px;
 }
