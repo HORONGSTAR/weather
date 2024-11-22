@@ -2,8 +2,8 @@ import { TableCell, TableRow, LinearProgress } from '@mui/material'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchLocalAir } from '../../features/localSlice'
-import { FaRegFaceMeh } from 'react-icons/fa6'
 import { airLevels } from '../../database/InternaLdata'
+import AirIcons from '../details/AirIcons'
 
 function AirItem({ lat, lon, name, detail }) {
    const dispatch = useDispatch()
@@ -11,7 +11,7 @@ function AirItem({ lat, lon, name, detail }) {
    const key = lon + '.' + lat
 
    useEffect(() => {
-      dispatch(fetchLocalAir({ type: 'air_pollution', lon, lat }))
+      dispatch(fetchLocalAir({ lon, lat }))
    }, [dispatch, lon, lat])
    if (loading)
       return (
@@ -32,17 +32,21 @@ function AirItem({ lat, lon, name, detail }) {
 
    return (
       <>
-         <TableRow>
-            <TableCell align="center">{name}</TableCell>
-            <TableCell align="center">
-               {airdatas[key] && airLevels('pm10', airdatas[key])}
-            </TableCell>
-            {detail && airdatas[key] && <TableCell>{airdatas[key].pm10}</TableCell>}
-            <TableCell align="center">
-               {airdatas[key] && airLevels('pm2_5', airdatas[key])}
-            </TableCell>
-            {detail && airdatas[key] && <TableCell>{airdatas[key].pm2_5}</TableCell>}
-         </TableRow>
+         {airdatas && (
+            <TableRow>
+               <TableCell align="center">{name}</TableCell>
+               <TableCell align="center">
+                  {airdatas[key] && airLevels('pm10', airdatas[key])}&nbsp;
+                  {airdatas[key] && <AirIcons level={airLevels('pm10', airdatas[key])} />}
+               </TableCell>
+               {detail && airdatas[key] && <TableCell>{airdatas[key].pm10}</TableCell>}
+               <TableCell align="center">
+                  {airdatas[key] && airLevels('pm2_5', airdatas[key])}&nbsp;
+                  {airdatas[key] && <AirIcons level={airLevels('pm2_5', airdatas[key])} />}
+               </TableCell>
+               {detail && airdatas[key] && <TableCell>{airdatas[key].pm2_5}</TableCell>}
+            </TableRow>
+         )}
       </>
    )
 }

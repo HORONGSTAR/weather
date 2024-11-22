@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCoord } from '../../features/coordSlice'
-import { Select, InputLabel, MenuItem, FormControl, Box } from '@mui/material'
-import { cityDatas, address } from '../../database/InternaLdata'
+import { Select, InputLabel, MenuItem, FormControl, Stack } from '@mui/material'
+import { cityDatas, address, labelId } from '../../database/InternaLdata'
 
-function CitySelect({ page }) {
+function CitySelect() {
    const dispatch = useDispatch()
    const [cityValue, setcityValue] = useState('')
    const [itemValue, setitemValue] = useState(null)
@@ -15,13 +15,11 @@ function CitySelect({ page }) {
 
    useEffect(() => {
       if (itemValue) dispatch(fetchCoord({ query: itemValue }))
-   }, [dispatch, itemValue, page])
-
-   const labelId = 'demo-simple-select-helper-label'
+   }, [dispatch, itemValue])
 
    return (
-      <Box padding={'20px'}>
-         <FormControl sx={{ m: 1, width: '100%' }}>
+      <Stack spacing={3} direction="row" padding="20px 0">
+         <FormControl sx={{ width: '300px' }}>
             <InputLabel id={labelId}>어느 지역의 날씨를 볼까요?</InputLabel>
             <Select
                labelId={labelId}
@@ -37,7 +35,7 @@ function CitySelect({ page }) {
             </Select>
          </FormControl>
          {cityValue && (
-            <FormControl sx={{ m: 1, width: '100%' }}>
+            <FormControl sx={{ width: '300px' }}>
                <InputLabel id={labelId}>우리 동네를 골라보아요!</InputLabel>
                <Select
                   labelId={labelId}
@@ -55,7 +53,7 @@ function CitySelect({ page }) {
          )}
          {loading && <p>정보를 찾아오는 중...</p>}
          {error && <p>문제가 생겼어요! {error}</p>}
-      </Box>
+      </Stack>
    )
 }
 

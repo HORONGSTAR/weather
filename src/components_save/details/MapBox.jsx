@@ -14,7 +14,13 @@ function MapBox() {
          {airpoint && (
             <Map
                center={{ lat: 36.2683, lng: 127.6358 }}
-               style={{ maxWidth: '500px', height: '500px' }}
+               style={{
+                  maxWidth: '500px',
+                  height: '500px',
+                  border: '8px solid #fff',
+                  borderRadius: '5px',
+                  boxShadow: '1px 1px 5px #ddd',
+               }}
                level={14}
             >
                {datas.map((data) => (

@@ -1,3 +1,5 @@
+export const labelId = 'demo-simple-select-helper-label'
+
 export const cityDatas = [
    {
       name: '서울특별시',
@@ -125,16 +127,6 @@ export const localDatas = [
       lat: 33.4167,
    },
 ]
-
-export const keys = () => {
-   const result = {}
-   const coords = localDatas.map((localDate) => localDate.key)
-   for (let coord of coords) {
-      result[coord] = null
-   }
-
-   return result
-}
 
 export const airLevels = (type, values) => {
    let value = values[type]

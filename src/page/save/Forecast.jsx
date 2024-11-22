@@ -3,20 +3,21 @@ import Footer from '../components/Footer'
 import CitySelect from '../components/details/CitySelect'
 import ForecastTap from '../components/taps/ForecastTap'
 import CardBox from '../components/details/CardBox'
-import { Grid2 } from '@mui/material'
+import { Stack } from '@mui/material'
+import { PiStarFourFill } from 'react-icons/pi'
 
 function Forecast() {
    return (
       <>
          <Menu />
-         <Grid2 container spacing={5}>
-            <Grid2 size={{ sm: 12, md: 4 }}>
-               <CitySelect page={'forecast'} />
-            </Grid2>
-            <Grid2 size={{ sm: 12, md: 8 }}>
-               <CardBox />
-            </Grid2>
-         </Grid2>
+         <h4>
+            <PiStarFourFill style={{ fontSize: '12px' }} />
+            &nbsp;지역 별로 날씨를 찾아볼 수 있어요!
+         </h4>
+         <Stack direction="row" spacing={2}>
+            <CitySelect page={'forecast'} />
+         </Stack>
+         <CardBox />
          <ForecastTap page={'forecast'} />
          <Footer />
       </>

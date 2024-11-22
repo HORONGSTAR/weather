@@ -1,4 +1,4 @@
-import { TableRow, TableCell, Avatar, Box } from '@mui/material'
+import { TableRow, TableCell, Avatar, Box, Stack } from '@mui/material'
 import { weatherKo, iconSrc } from '../../database/InternaLdata'
 import { skycolors, WindDeg, Text, avatarSx, UnitSpan } from '../../style/StyledComponent'
 import { FaArrowUpLong } from 'react-icons/fa6'
@@ -13,7 +13,7 @@ function ForecastItem({ items }) {
             </Text>
          </TableCell>
          <TableCell>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
                <Avatar
                   src={
                      items.item.weather[0]
@@ -28,7 +28,7 @@ function ForecastItem({ items }) {
                   sx={skycolors(items.hour).concat(avatarSx)}
                />
                <Text $media={true}>{weatherKo[items.item.weather[0].id]}</Text>
-            </Box>
+            </Stack>
          </TableCell>
          <TableCell align="center">
             <Text>

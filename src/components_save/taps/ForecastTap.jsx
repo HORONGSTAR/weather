@@ -16,7 +16,7 @@ function ForecastTap() {
 
    useEffect(() => {
       if (lon && lat) {
-         dispatch(fetchSearchForecast({ type: 'forecast', lat: lat, lon: lon }))
+         dispatch(fetchSearchForecast({ lat: lat, lon: lon }))
       }
    }, [dispatch, lon, lat])
 

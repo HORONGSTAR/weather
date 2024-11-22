@@ -15,6 +15,7 @@ body {
    margin: 0;
    padding: 0;
 }
+
 ul {
    list-style: none;
    padding: 0;
@@ -37,7 +38,8 @@ ul {
 }
 
 header {
-   padding-top: 40px;
+   padding-top: 30px;
+   border-bottom: 1px solid #ddd;
 }
 
 header > nav ul {
@@ -50,10 +52,17 @@ header > nav li {
 header > nav a {
    text-decoration: none;
 }
+header > nav li:hover a {
+   font-weight: bold;
+}
 
 .banner {
    background-image: url(../../public/images/sky.jpg);
    background-size: cover;
    background-position: bottom;
    border-radius: 10px;
+}
+
+.gradation {
+   background: linear-gradient(#48b6d6, #ddf1f7);
 }

@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getWeathers } from '../api/weatherAPI'
-import { keys } from '../database/InternaLdata'
 
 export const fetchLocalWeather = createAsyncThunk(
    '/fetchLocalWeather',
@@ -19,9 +18,8 @@ const localSlice = createSlice({
    name: 'local',
    initialState: {
       loading: false,
-      weathers: { ...keys },
-      airdatas: { ...keys },
-      airpoint: null,
+      weathers: {},
+      airdatas: {},
       error: null,
    },
    reducers: {},
