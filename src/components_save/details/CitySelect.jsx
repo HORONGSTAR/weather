@@ -51,6 +51,7 @@ function CitySelect() {
                </Select>
             </FormControl>
          )}
+
          {loading && <p>정보를 찾아오는 중...</p>}
          {error && <p>문제가 생겼어요! {error}</p>}
       </Stack>
