@@ -83,7 +83,7 @@ function Home({ page }) {
                </h4>
                <Grid2 spacing={2} container>
                   <Grid2 size={{ xs: 12, sm: 6, md: 5 }}>
-                     <MapBox coords={coords} />
+                     <TableBox coords={coords} isMap={true} height={'100%'} />
                   </Grid2>
                   <Grid2 size={{ xs: 12, sm: 6, md: 7 }}>
                      <TableBox coords={coords} detail={true} height={'100%'} />
