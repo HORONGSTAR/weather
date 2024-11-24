@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { Logo } from '../style/StyledComponent'
 
 function Menu() {
    return (
@@ -7,11 +8,11 @@ function Menu() {
             <ul>
                <li>
                   <NavLink to="/">
-                     <img src="images/logo.png" alt="우리들의 기상청" width={200} />
+                     <Logo />
                   </NavLink>
                </li>
                <li>
-                  <NavLink to="/">처음으로</NavLink>
+                  <NavLink to="/"> 처음으로</NavLink>
                </li>
                <li>
                   <NavLink to="/forecast">일기예보</NavLink>

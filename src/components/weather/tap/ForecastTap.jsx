@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSearchForecast } from '../../../features/searchSlice'
-import ForecastTable from './ForecastTable'
+import ForecastTable from '../table/ForecastTable'
 import { Box, Tab } from '@mui/material'
 import { TabContext, TabList } from '@mui/lab'
 import { todays } from '../../../database/InternaLdata'
@@ -47,8 +47,8 @@ function ForecastTap() {
       }
    }, [itemList, setValue])
 
-   if (loading) return <p>Loading...</p>
-   if (error) return <p>Error: {error}</p>
+   if (loading) return <p> 정보를 찾아오는 중...</p>
+   if (error) return <p>문제가 생겼어요! : {error}</p>
 
    const handleChange = (event, newValue) => {
       setValue(newValue)

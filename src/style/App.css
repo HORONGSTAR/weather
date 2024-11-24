@@ -1,50 +1,65 @@
+/* font-import */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Gaegu&family=Gamja+Flower&display=swap');
-
 @font-face {
    font-family: 'HakgyoansimBunpilR';
    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimBunpilR.woff2')
       format('woff2');
 }
 
+/* css-reset */
 * {
-   font-family: 'pretendard', sans-serif;
+   font-family: 'pretendard', sans-serif !important;
    color: #222;
-}
-body {
    margin: 0;
    padding: 0;
 }
-
 ul {
    list-style: none;
-   padding: 0;
-   margin: 0;
 }
+.wrap {
+   margin: 0 auto 50px;
+   max-width: 1200px;
+   overflow: hidden;
+   padding: 0 10px;
+   min-height: 800px;
+}
+
+/* defult-setting */
+h4 {
+   padding: 10px 0;
+   font-size: 18px;
+}
+p {
+   padding: 2px 0;
+   font-size: 15px;
+}
+
+/* custom-scrollbar */
 
 ::-webkit-scrollbar {
-   width: 5px;
-   height: 5px;
+   width: 8px;
+   height: 8px;
 }
-
 ::-webkit-scrollbar-thumb {
    height: 30%;
-   background: skyblue;
+   background: #ddd;
    border-radius: 10px;
 }
-
 ::-webkit-scrollbar-track {
-   background: rgba(33, 122, 244, 0.1);
+   background: #eee;
 }
+
+/* header-meue */
 
 header {
-   padding-top: 30px;
-   border-bottom: 1px solid #ddd;
+   margin: 0 auto;
+   max-width: 1200px;
+   padding: 10px;
 }
-
 header > nav ul {
    display: flex;
    align-items: center;
+   border-bottom: 1px solid #ddd;
 }
 header > nav li {
    padding: 20px;
@@ -56,13 +71,31 @@ header > nav li:hover a {
    font-weight: bold;
 }
 
-.banner {
-   background-image: url(../../public/images/sky.jpg);
-   background-size: cover;
-   background-position: bottom;
-   border-radius: 10px;
+/* card-background */
+.gradation {
+   background: linear-gradient(#ffffff00, #ffffffc7);
 }
 
-.gradation {
-   background: linear-gradient(#48b6d6, #ddf1f7);
+@media (max-width: 600px) {
+   header {
+      padding-top: 5px;
+   }
+   header > nav ul {
+      display: flex;
+      justify-content: end;
+   }
+   header > nav li {
+      padding: 10px;
+      font-size: 14px;
+   }
+   header > nav li:first-of-type {
+      float: left;
+      margin-right: auto;
+   }
+   header > nav a {
+      text-decoration: none;
+   }
+   header > nav li:hover a {
+      font-weight: bold;
+   }
 }

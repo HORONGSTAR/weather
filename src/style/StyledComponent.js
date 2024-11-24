@@ -1,11 +1,57 @@
 import styled from 'styled-components'
+import { todays } from '../database/InternaLdata'
+import { PiStarFourFill } from 'react-icons/pi'
 
-export const Wrap = styled.div`
-   margin: 0 auto;
-   max-width: 1200px;
-   overflow: hidden;
-   padding: 10px;
+const sunrise = 3
+const sunset = 18
+
+export default function SubTitle({ children }) {
+   return (
+      <h3 style={{ fontSize: '18px', margin: '30px 0', color: '#002855' }}>
+         <PiStarFourFill style={{ fontSize: '12px', marginRight: '5px', fill: '#245E84' }} />
+         {children}
+      </h3>
+   )
+}
+
+export const airMapStlye = {
+   fontSize: '12px',
+   width: '30px',
+   height: '30px',
+   lineHeight: '30px',
+   textAlign: 'center',
+   color: '#fff',
+   borderRadius: '15px',
+}
+
+export const airLevelColor = (data) => {
+   return data === '매우 나쁨'
+      ? 'darkorchid'
+      : data === '나쁨'
+      ? 'firebrick'
+      : data === '보통'
+      ? 'darkgoldenrod'
+      : 'forestgreen'
+}
+
+export const Logo = styled.img.attrs({
+   src: 'images/logo.png',
+   alt: '우리들의 기상청',
+})`
+   width: 200px;
+   @media (max-width: 500px) {
+      width: 120px;
+   }
 `
+export const getIcon = (icon) => {
+   return icon
+      ? 'https://openweathermap.org/img/wn/' +
+           (sunset > todays.hour && todays.hour > sunrise
+              ? icon.replace('n', 'd')
+              : icon.replace('d', 'n')) +
+           '@4x.png'
+      : './images/empty_square.png'
+}
 
 export const WindDeg = styled.div`
    transform: rotate(${(props) => props.$deg || 0}deg);
@@ -15,75 +61,9 @@ export const WindDeg = styled.div`
    height: 20px;
 `
 
-export const Text = styled.p`
-   font-size: ${(props) => props.$size || '16px'};
-   white-space: nowrap;
-
-   ${(props) =>
-      props.$media
-         ? '@media (max-width: 600px) { letter-spacing: -1px; font-size: 14px;  white-space: normal; word-break: break-all;}'
-         : '@media (max-width: 600px) { letter-spacing: -1px; font-size: 14px;  }'}
-`
-
-export const UnitSpan = styled.span`
-   @media (max-width: 600px) {
-      font-size: ${(props) => props.$size || '10px'};
-      color: ${(props) => props.$textcolor || 'gray'};
-   }
-`
-
-export const bannerSx = (size) => [
-   {
-      width: '90%',
-      height: '300px',
-      margin: '50px auto',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: '3px',
-   },
-   {
-      padding: '10px',
-      fontFamily: 'HakgyoansimBunpilR, sans-serif',
-      fontSize: size || '30px',
-      color: 'white',
-   },
-]
-
-export const sliceItmeSx = [
-   {
-      minWidth: '145px',
-      height: '300px',
-      borderRadius: 2,
-   },
-   {
-      height: '150px',
-      display: 'flex',
-      alignItems: 'center',
-   },
-   {
-      display: 'flex',
-      width: '100%',
-      height: '300px',
-      alignItems: 'center',
-   },
-]
-
-export const skycolors = (hour) => [
-   {
-      bgcolor:
-         hour >= 21
-            ? 'Thistle'
-            : hour >= 18
-            ? 'Pink'
-            : hour >= 9
-            ? 'LightBlue'
-            : hour >= 6
-            ? 'Wheat'
-            : 'Thistle',
-   },
-]
+export const skycolors = {
+   bgcolor: sunset > todays.hour && todays.hour > sunrise ? '#7ed2e7' : '#588992',
+}
 
 export const avatarSx = (size) => [
    {
@@ -92,3 +72,39 @@ export const avatarSx = (size) => [
       borderRadius: '20px',
    },
 ]
+
+export const BannerImg = styled.div`
+   background-image: url(images/${sunset > todays.hour && todays.hour > sunrise
+      ? 'sky_day.jpg'
+      : 'sky_night.jpg'});
+   background-size: cover;
+   background-position: bottom;
+   border-radius: 10px;
+`
+
+export const bannerSx = (fontSize) => [
+   {
+      width: '100%',
+      height: '330px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: '30px 0',
+   },
+   {
+      padding: '10px',
+      fontFamily: 'HakgyoansimBunpilR, sans-serif !important',
+      fontSize: fontSize || '30px',
+      color: 'white',
+      textShadow: '0px 1px 3px #000',
+      letterSpacing: '1px',
+   },
+]
+
+export const sliceItmeSx = {
+   minWidth: '120px',
+   height: '300px',
+   borderRadius: 2,
+   margin: '2px',
+}

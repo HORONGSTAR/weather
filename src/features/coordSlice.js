@@ -10,6 +10,7 @@ const coordSlice = createSlice({
    name: 'coord',
    initialState: {
       loading: false,
+      coord: null,
       lon: null,
       lat: null,
       error: null,

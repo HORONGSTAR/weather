@@ -31,7 +31,7 @@ const localSlice = createSlice({
          })
          .addCase(fetchLocalWeather.fulfilled, (state, action) => {
             state.loading = false
-            state.weathers[action.payload.data.coord.lon + '.' + action.payload.data.coord.lat] =
+            state.weathers[action.payload.data.coord.lon + '/' + action.payload.data.coord.lat] =
                action.payload.data
          })
          .addCase(fetchLocalWeather.rejected, (state, action) => {
@@ -44,7 +44,7 @@ const localSlice = createSlice({
          })
          .addCase(fetchLocalAir.fulfilled, (state, action) => {
             state.loading = false
-            state.airdatas[action.payload.data.coord.lon + '.' + action.payload.data.coord.lat] = {
+            state.airdatas[action.payload.data.coord.lon + '/' + action.payload.data.coord.lat] = {
                pm10: action.payload.data.list[0].components.pm10,
                pm2_5: action.payload.data.list[0].components.pm2_5,
             }

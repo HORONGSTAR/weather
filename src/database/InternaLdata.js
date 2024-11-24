@@ -1,5 +1,3 @@
-export const labelId = 'demo-simple-select-helper-label'
-
 export const cityDatas = [
    {
       name: '서울특별시',
@@ -125,6 +123,12 @@ export const localDatas = [
       value: 'Jeju-do',
       lon: 126.5,
       lat: 33.4167,
+   },
+   {
+      name: '울릉/독도',
+      value: 'Ulleung-do',
+      lat: 37.4844,
+      lon: 131.4,
    },
 ]
 
@@ -451,8 +455,6 @@ export const weatherKo = {
    961: '강한 폭풍',
    962: '허리케인',
 }
-
-export const iconSrc = ['https://openweathermap.org/img/wn/', '@4x.png', './images/logo.png']
 
 const today = new Date()
 export const todays = {

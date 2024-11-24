@@ -5,13 +5,16 @@ function Footer() {
       <footer>
          <Box
             sx={{
-               height: '150px',
+               backgroundColor: '#eee',
+               height: '80px',
                display: 'flex',
                justifyContent: 'center',
                alignItems: 'center',
+               color: '#555',
+               fontSize: '12px',
             }}
          >
-            <small>Copyright 2024. 우리들의 기상청. All rights reserved</small>
+            Copyright 2024. 우리들의 기상청. All rights reserved
          </Box>
       </footer>
    )
