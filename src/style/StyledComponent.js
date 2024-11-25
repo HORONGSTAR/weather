@@ -14,7 +14,7 @@ export default function SubTitle({ children }) {
    )
 }
 
-export const airMapStlye = {
+export const airMapStlye = (data) => ({
    fontSize: '12px',
    width: '30px',
    height: '30px',
@@ -22,17 +22,15 @@ export const airMapStlye = {
    textAlign: 'center',
    color: '#fff',
    borderRadius: '15px',
-}
-
-export const airLevelColor = (data) => {
-   return data === '매우 나쁨'
-      ? 'darkorchid'
-      : data === '나쁨'
-      ? 'firebrick'
-      : data === '보통'
-      ? 'darkgoldenrod'
-      : 'forestgreen'
-}
+   backgroundColor:
+      data > 150
+         ? 'darkorchid'
+         : data > 80
+         ? 'firebrick'
+         : data > 30
+         ? 'darkgoldenrod'
+         : 'forestgreen',
+})
 
 export const Logo = styled.img.attrs({
    src: 'images/logo.png',

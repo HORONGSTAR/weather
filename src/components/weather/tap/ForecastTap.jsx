@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSearchForecast } from '../../../features/searchSlice'
 import ForecastTable from '../table/ForecastTable'
@@ -20,7 +20,7 @@ function ForecastTap() {
       }
    }, [dispatch, lon, lat])
 
-   useEffect(() => {
+   useMemo(() => {
       if (!forecasts) return
       const keys = forecasts.map((forecast) => forecast.dt_txt.split(' '))
       const itemkey = keys
@@ -47,12 +47,15 @@ function ForecastTap() {
       }
    }, [itemList, setValue])
 
+   const handleChange = useCallback(
+      (event, newValue) => {
+         setValue(newValue)
+      },
+      [setValue]
+   )
+
    if (loading) return <p> 정보를 찾아오는 중...</p>
    if (error) return <p>문제가 생겼어요! : {error}</p>
-
-   const handleChange = (event, newValue) => {
-      setValue(newValue)
-   }
 
    return (
       <Box sx={{ width: '100%', typography: 'body1' }}>

@@ -1,8 +1,7 @@
 import { Map, CustomOverlayMap } from 'react-kakao-maps-sdk'
-import { airLevels } from '../../../database/InternaLdata'
 import { Card } from '@mui/material'
 import { useSelector } from 'react-redux'
-import { airMapStlye, airLevelColor } from '../../../style/StyledComponent'
+import { airMapStlye } from '../../../style/StyledComponent'
 
 function MapBox() {
    const { loading, error, airdatas } = useSelector((state) => state.local)
@@ -33,13 +32,8 @@ function MapBox() {
                               lat: item.key.split('/')[1],
                            }}
                         >
-                           <div
-                              style={{
-                                 ...airMapStlye,
-                                 backgroundColor: airLevelColor('pm10', airdatas[item.key]),
-                              }}
-                           >
-                              {airLevels('pm10', airdatas[item.key])}
+                           <div style={airMapStlye(airdatas[item.key].pm10.toFixed(0))}>
+                              {airdatas[item.key].pm10.toFixed(0)}
                            </div>
                         </CustomOverlayMap>
                      )

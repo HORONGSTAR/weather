@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { fetchLocalWeather, fetchLocalAir } from '../features/localSlice'
 import { add } from '../features/itemSlice'
 import { useDispatch } from 'react-redux'
@@ -10,6 +10,7 @@ import Forecast from './Forecast'
 import AirPollution from './AirPollution'
 
 function Main({ page }) {
+   const isFirstLoad = useRef(true)
    const dispatch = useDispatch()
    useEffect(() => {
       const itemList = []
@@ -19,7 +20,8 @@ function Main({ page }) {
          itemList.push({ key: data.lon + '/' + data.lat, name: data.name })
       }
       dispatch(add(itemList))
-   }, [dispatch])
+      isFirstLoad.current = false
+   }, [dispatch, isFirstLoad])
 
    return (
       <>
