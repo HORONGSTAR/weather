@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { Autoplay } from 'swiper/modules'
 
-function SliceBox() {
+function WeatherSlice() {
    const { loading, error } = useSelector((state) => state.local)
    const { items } = useSelector((state) => state.item)
 
@@ -30,12 +30,8 @@ function SliceBox() {
          >
             {items &&
                items.map((item) => (
-                  <SwiperSlide>
-                     <WeatherSliceItem
-                        key={'WeatherSliceItem/' + item.key}
-                        itemKey={item.key}
-                        itemName={item.name}
-                     />
+                  <SwiperSlide key={'WeatherSliceItem' + item.key}>
+                     <WeatherSliceItem itemKey={item.key} itemName={item.name} />
                   </SwiperSlide>
                ))}
          </Swiper>
@@ -43,4 +39,4 @@ function SliceBox() {
    )
 }
 
-export default SliceBox
+export default WeatherSlice

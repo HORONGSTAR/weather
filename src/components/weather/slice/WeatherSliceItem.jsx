@@ -3,7 +3,7 @@ import { weatherKo } from '../../../database/InternaLdata'
 import { useSelector } from 'react-redux'
 import { sliceItmeSx, skycolors, getIcon } from '../../../style/StyledComponent'
 
-function SliceItem({ itemKey, itemName }) {
+function WeatherSliceItem({ itemKey, itemName }) {
    const { loading, weathers, error } = useSelector((state) => state.local)
    if (loading) return <p> 정보를 찾아오는 중...</p>
    if (error) return <p>문제가 생겼어요! : {error}</p>
@@ -32,4 +32,4 @@ function SliceItem({ itemKey, itemName }) {
    )
 }
 
-export default SliceItem
+export default WeatherSliceItem
